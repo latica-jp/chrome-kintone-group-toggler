@@ -1,0 +1,28 @@
+{
+  "name": "kintone Group Toggler",
+  "description": "Toggle kintone groups",
+  "background": {
+    "scripts": [
+      "background.bundle.js"
+    ]
+  },
+  "browser_action": {
+    "default_icon": "icon-32.png"
+  },
+  "icons": {
+    "128": "icon-128.png"
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.cybozu.com/k/*"
+      ],
+      "run_at": "document_end",
+      "js": [
+        "script.bundle.js"
+      ]
+    }
+  ],
+  "manifest_version": 2
+}
