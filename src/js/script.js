@@ -1,11 +1,12 @@
-chrome.extension.onMessage.addListener((request, sender, sendResponse) => {
-  const isExpanded = element => element.getAttribute('aria-expanded') === 'true'
+const isExpanded = element => element.getAttribute('aria-expanded') === 'true'
 
-  const buttons = document.querySelectorAll('.group-label-gaia')
-  if (buttons.length > 0) {
-    const expanded = !isExpanded(buttons[0])
-    buttons.forEach(button => {
-      if (isExpanded(button) !== expanded) button.click()
-    })
-  }
+chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+  const buttons = [...document.querySelectorAll('.group-label-gaia')]
+  if (!buttons.length) return
+
+  const isAllExpanded = !buttons.some(_ => !isExpanded(_))
+  const expand = !isAllExpanded
+  buttons.forEach(button => {
+    if (isExpanded(button) !== expand) button.click()
+  })
 })

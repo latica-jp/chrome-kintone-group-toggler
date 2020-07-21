@@ -1,6 +1,6 @@
 {
   "name": "kintone Group Toggler",
-  "description": "Toggle kintone groups",
+  "description": "Batch open/close kintone groups on recored detail screen",
   "background": {
     "scripts": [
       "background.bundle.js"
