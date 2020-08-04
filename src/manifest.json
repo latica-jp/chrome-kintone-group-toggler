@@ -1,6 +1,7 @@
 {
   "name": "kintone Group Toggler",
-  "description": "Batch open/close kintone groups on recored detail screen",
+  "version": "0.1.0",
+  "description": "Batch open/close kintone groups on record detail screen",
   "background": {
     "scripts": [
       "background.bundle.js"
